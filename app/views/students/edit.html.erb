@@ -1,0 +1,13 @@
+<div class="p-2">
+  <h1>Editando Aluno</h1>
+</div>
+
+  <%= render "form", student: @student %>
+
+<br>
+
+<div class="mb-3 ms-2">
+  <%= link_to "Detalhes", @student, :class => "btn btn-primary p-2" %>
+  <%= link_to "Voltar", students_path, :class => "btn btn-primary p-2" %>
+</div>
+

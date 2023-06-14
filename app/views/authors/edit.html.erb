@@ -1,0 +1,12 @@
+<div class="p-2">
+  <h1>Editando Autor</h1>
+</div>
+
+<%= render "form", author: @author %>
+
+<br>
+
+<div class="mb-3 ms-2">
+  <%= link_to "Detalhes", @author, :class => "btn btn-primary p-2" %>
+  <%= link_to "Voltar", authors_path, :class => "btn btn-primary p-2"%>
+</div>

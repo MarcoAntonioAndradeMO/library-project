@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="ms-2">
+  <%= render @employer %>
+</div>
+
+<div class="p-3">
+  <div class="p-3">
+    <%= link_to "Detalhes", edit_employer_path(@employer), :class => "btn btn-primary" %>
+  <%= link_to "Voltar", employers_path, :class => "btn btn-primary" %>
+  </div>
+  <%= button_to "Apagar Funcionário", @employer, method: :delete, :class => "btn btn-danger" %>
+</div>

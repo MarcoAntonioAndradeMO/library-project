@@ -1,0 +1,42 @@
+<%= form_with(model: employer) do |form| %>
+  <% if employer.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(employer.errors.count, "error") %> prohibited this employer from being saved:</h2>
+
+      <ul>
+        <% employer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3 ms-2">
+    <%= form.label :Nome, style: "display: block" %>
+    <%= form.text_field :proper_name %>
+  </div>
+
+  <div class="mb-3 ms-2">
+    <%= form.label :Cargo, style: "display: block" %>
+    <%= form.text_field :function %>
+  </div>
+
+  <div class="mb-3 ms-2">
+    <%= form.label :Data_de_adimissão, style: "display: block" %>
+    <%= form.date_field :effectuation_date %>
+  </div>
+
+  <div class="mb-3 ms-2">
+    <%= form.label :Data_de_demissão, style: "display: block" %>
+    <%= form.text_field :resignation_date %>
+  </div>
+
+  <div class="mb-3 ms-2">
+    <%= form.label :Empréstimos, style: "display: block" %>
+    <%= form.text_field :loans %>
+  </div>
+
+  <div class="mb-3 ms-2">
+    <%= submit_tag "Enviar", class: "submit-button btn btn-success" %>
+  </div>
+<% end %>

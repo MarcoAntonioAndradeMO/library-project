@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Início</title>
+</head>
+
+<body>
+<div class="col-12">
+  <h1 class="p-5"> Biblioteca </h1>
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item bg-img-1 active">
+        <%= image_tag "biblioteca2.jpg", class: "col-12", alt: "Imagem Sala de Estudos", style: "height: 340px" %>
+      </div>
+      <div class="carousel-item bg-img-2">
+        <%= image_tag "biblioteca.jpg", class: "col-12", alt: "Imagem Biblioteca", style: "height: 340px"%>
+      </div>
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+</div>
+
+</body>
+</html>

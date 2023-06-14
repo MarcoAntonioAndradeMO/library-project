@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="ms-2">
+  <%= render @book %>
+</div>
+
+<div class="p-3">
+  <div class="p-3">
+  <%= link_to "Editar", edit_book_path(@book), :class => "btn btn-primary" %>
+  <%= link_to "Voltar", books_path , :class => "btn btn-primary"%>
+  </div>
+  <%= button_to "Apagar Livro", @book, method: :delete, :class => "btn btn-danger"%>
+</div>

@@ -1,0 +1,12 @@
+<div class="p-2">
+  <h1>Editando Livro</h1>
+</div>
+
+<%= render "form", book: @book %>
+
+<br>
+
+<div class="mb-3 ms-2">
+  <%= link_to "Detalhes", @book, :class => "btn btn-primary p-2" %>
+  <%= link_to "Voltar", books_path, :class => "btn btn-primary p-2" %>
+</div>
