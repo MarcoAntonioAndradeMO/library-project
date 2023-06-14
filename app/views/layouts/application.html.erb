@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LibraryProject</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <%= javascript_include_tag 'application' %>
+    <script src="<%= javascript_path "autocompleteBS" %>" type="application/javascript"></script>
+  </head>
+
+  <body>
+  <div class="bg-primary text-white" class="collapse show" id="menu-collapse">
+    <div class="mb-1 container">
+      <nav class="d-flex flex-wrap align-items-center justify-content-lg-start">
+        <button class="me-2 btn btn-toggle d-inline-flex align-items-center rounded border" aria-expanded="true" id="btn-menu">
+          <svg xmlns="http://www.w3.org/2000/svg" widtd="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+          </svg>
+        </button>
+
+        <div>
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li class="btn-menu"><%= link_to "Início", welcome_index_path,  :class => "nav-link px-2 text-white" %></li>
+            <li><%= link_to "Dashboard", dashboard_index_path,  :class => "nav-link px-2 text-white" %></a></li>
+            <li><%= link_to "Funcionários", employers_path ,  :class => "nav-link px-2 text-white"%></li>
+            <li><%= link_to "Alunos", students_path,  :class => "nav-link px-2 text-white" %></li>
+            <li><%= link_to "Livros", books_path,  :class => "nav-link px-2 text-white" %></li>
+            <li><%= link_to "Autores", authors_path,  :class => "nav-link px-2 text-white" %></li>
+            <li><%= link_to "Temas", themes_path ,  :class => "nav-link px-2 text-white"%></li>
+            <li><%= link_to "Empréstimos", "#",  :class => "nav-link px-2 text-white" %></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="ms-4" id="menu-oculto" >
+    <div class="collapse show" >
+      <button class=" ms-2 mt-2 mb-3 btn btn-toggle d-inline-flex d-none align-items-center rounded border" aria-expanded="true" id="btn-oculto">
+        <svg xmlns="http://www.w3.org/2000/svg" widtd="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+          <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!--  <p class="notice"><%#= notice %></p>-->
+  <!--  <p class="alert"><%#= alert %></p>-->
+  <div class="container py-5">
+    <%= yield %>
+  </div>
+
+  </body>
+</html>
