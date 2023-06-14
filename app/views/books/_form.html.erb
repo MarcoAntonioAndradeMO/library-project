@@ -16,9 +16,25 @@
     <%= form.text_field :book_name %>
   </div>
 
-  <div class="mb-3 ms-2">
-    <%= form.label :Assinatura_do_Autor, style: "display: block" %>
-    <%= form.text_field :author_signature %>
+  <div class="mb-3 ms-2 position-relative">
+    <%= form.label "Autores", style: "display: block" %>
+    <%# form.text_field :author_signature %>
+<!--    <input type="text" class="form-control autocomplete" id="search_author" name="search_author" />-->
+    <%= form.hidden_field :author_id %>
+    <script type="text/javascript">
+      var count_authors_on_book = <%=book.add_author_to_books.count %>;
+    </script>
+    <div class="content_authors">
+      <%= form.fields_for :add_author_to_books do |author|  %>
+
+        <div class="ms-2 mb-2">
+          <input type="text" class="form-control" value="<%=author.object.author.signature %>">
+          <%=author.hidden_field :author_id %>
+        </div>
+      <% end %>
+
+    </div>
+    <button type="button" class="btn btn-info add_author">Adicionar Author</button>
   </div>
 
   <div class="mb-3 ms-2">

@@ -19,4 +19,11 @@
     <%= book.quantity %>
   </p>
 
+  <p>
+    <strong>Autores:</strong>
+    <% book.authors.each  do |author| %>
+      <%= author.signature %> <br />
+    <% end %>
+  </p>
+
 </div>
