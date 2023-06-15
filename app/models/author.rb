@@ -1,6 +1,6 @@
 class Author < ApplicationRecord
   has_many :add_author_to_books
-  has_many :books, through: :add_author_to_books
+  has_many :books, through: :add_author_to_books,dependent: :destroy
 
   attr_accessor :book
 

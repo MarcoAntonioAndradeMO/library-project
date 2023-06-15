@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <div class="mb-3 ms-2">
+  <div class="mb-3 ms-2 position-relative">
     <%= form.label :Nome_do_Livro, style: "display: block" %>
     <%= form.text_field :book_name %>
   </div>
@@ -24,6 +24,7 @@
     <script type="text/javascript">
       var count_authors_on_book = <%=book.add_author_to_books.count %>;
     </script>
+
     <div class="content_authors">
       <%= form.fields_for :add_author_to_books do |author|  %>
 

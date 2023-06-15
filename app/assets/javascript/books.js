@@ -8,6 +8,7 @@ $(document).ready(function (){
                        'name="book[add_author_to_books_attributes]['+count_authors_on_book+'][author_id]"'+
                        'id="book_add_author_to_books_attributes_'+count_authors_on_book+'_author_id">'+
         '</div>');
+
         autocompleteBS([{
                     name: 'Selecione um author',
                     inputSource: document.getElementById('book_add_author_to_books_attributes_'+count_authors_on_book+'_author_name'),
