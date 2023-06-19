@@ -4,6 +4,28 @@
   <%= render @book %>
 </div>
 
+<div class="d-flex justify-content-lg-end">
+  <button type="button" class="btn btn-primary" id="add-tema" data-bs-toggle="modal" data-bs-target="#modal-tema">Adicionar Tema</button>
+</div>
+
+<div class="modal" id="modal-tema">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Adicionando um novo Tema</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="nome-tema">Nome do tema: </label><br>
+        <input class="form-control" type="text" id="nome-tema" name="nome-tema"><br>
+      </div>
+      <div class="modal-footer">
+        <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="p-3">
   <div class="p-3">
   <%= link_to "Editar", edit_book_path(@book), :class => "btn btn-primary" %>
