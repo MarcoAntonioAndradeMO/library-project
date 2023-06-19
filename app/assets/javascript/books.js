@@ -21,6 +21,31 @@ $(document).ready(function (){
                 }]);
        count_authors_on_book++;
     })
+
+    // $('.add_theme').click(function (){
+    //
+    //     $('.content_theme').append('<div class="ms-2 mb-2">'+
+    //         '<input type="text" id="book_add_theme_to_books_attributes_'+count_theme_on_book+'theme_name" class="form-control" value="">'+
+    //         '<input autoComplete="off" type="hidden" value="2"'+
+    //         'name="book[add_theme_to_books_attributes]['+count_theme_on_book+'][theme_id]"'+
+    //         'id="book_add_theme_to_books_attributes_'+count_theme_on_book+'_theme_id">'+
+    //     '</div>');
+    //
+    //     autocompleteBS([{
+    //         name: 'Selecione um Tema',
+    //         inputSource: document.getElementById('book_add_theme_to_books_attributes_'+count_theme_on_book+'_theme_name'),
+    //         targetID: document.getElementById('book_add_author_to_books_attributes_'+count_theme_on_book+'_theme_id'),
+    //         fetchURL: 'http://127.0.0.1:3000/themes.json?name={term}',
+    //         fetchMap: {
+    //             id: "id",
+    //             name: "theme"
+    //         }
+    //     }]);
+    //     count_authors_on_book++;
+    // })
+    // })
+
+
     // if($("#search_author").length > 0)
     //     autocompleteBS([{
     //         name: 'Select A Country by Name',
