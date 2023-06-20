@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+<h1>Detalhes do Livro</h1><br>
+
 <div class="ms-2">
   <%= render @book %>
 </div>
@@ -12,16 +14,25 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Adicionando um novo Tema</h5>
+        <h5 class="modal-title">Adicionando um tema ao livro</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <label for="nome-tema">Nome do tema: </label><br>
-        <input class="form-control" type="text" id="nome-tema" name="nome-tema"><br>
-      </div>
-      <div class="modal-footer">
-        <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Enviar</button>
-      </div>
+      <%= form_with(model: @book, id: 'modal-tema-form') do |form| %>
+        <div class="field">
+          <%= form.label :themes_path, "Nome do tema:" %><br>
+          <%= form.collection_select :theme_ids, Theme.all, :id, :theme, {}, multiple: true, class:"form-control" %><br>
+        </div>
+
+        <%= form.submit "Adicionar Temas", class: "btn-primary" %>
+      <% end %>
+
+<!--      <div class="modal-body">-->
+<!--        <label for="nome-tema">Nome do tema: </label>-->
+<!--        <input class="form-control" type="text" id="nome-tema" name="nome-tema"><br>-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Adicionar Tema</button>-->
+<!--      </div>-->
     </div>
   </div>
 </div>

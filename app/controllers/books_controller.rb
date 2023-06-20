@@ -8,6 +8,7 @@ class BooksController < ApplicationController
 
   # GET /books/1 or /books/1.json
   def show
+    themes_path
   end
 
   # GET /books/new
@@ -25,7 +26,6 @@ class BooksController < ApplicationController
 
     respond_to do |format|
         if @book.save
-
           format.html { redirect_to book_url(@book), notice: "Livro criado com Suceso!" }
           format.json { render :show, status: :created, location: @book }
         else
@@ -42,6 +42,15 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
+    @book = book.find(params[:id])
+
+    if @book.update(book_params)
+      redirect_to @book, notice: "Temas adicionados com sucesso!"
+    else
+      render :edit
+    end
+
+
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
@@ -72,7 +81,7 @@ class BooksController < ApplicationController
     # Only allow a list of trusted parameters through.
   def book_params
     params.require(:book).permit(:book_name,
-                                  :year, :isbn, :quantity, :theme_id, :theme,
+                                  :year, :isbn, :quantity, :theme_ids, :theme,
                                  add_author_to_books_attributes: [:author_id] )
   end
   end

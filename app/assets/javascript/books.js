@@ -22,7 +22,41 @@ $(document).ready(function (){
        count_authors_on_book++;
     })
 
-    // $('.add_theme').click(function (){
+// Abrir o modal quando o botão "Adicionar Tema" for clicado
+    document.getElementById('add-tema').addEventListener('click', function() {
+        var myModal = new bootstrap.Modal(document.getElementById('modal-tema'));
+        myModal.show();
+    });
+
+// Enviar o formulário quando o botão "Adicionar Temas" for clicado
+    document.getElementById('modal-tema-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Impede o envio normal do formulário
+
+        // Faça a requisição AJAX para enviar o formulário
+        var form = this;
+        var formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method,
+            body: formData
+        }).then(function(response) {
+            // Lógica para lidar com a resposta da requisição (por exemplo, exibir uma mensagem de sucesso)
+            if (response.ok) {
+                alert('Temas adicionados com sucesso!');
+                var myModal = bootstrap.Modal.getInstance(document.getElementById('modal-tema'));
+                myModal.hide(); // Fechar o modal após o sucesso
+            } else {
+                alert('Erro ao adicionar temas.');
+            }
+        }).catch(function(error) {
+            console.error('Erro:', error);
+            alert('Ocorreu um erro ao enviar o formulário.');
+        });
+    });
+
+
+    // $('.add_theme').click(func
+tion (){
     //
     //     $('.content_theme').append('<div class="ms-2 mb-2">'+
     //         '<input type="text" id="book_add_theme_to_books_attributes_'+count_theme_on_book+'theme_name" class="form-control" value="">'+
