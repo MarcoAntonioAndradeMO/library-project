@@ -26,12 +26,13 @@ $(document).ready(function (){
     document.getElementById('add-tema').addEventListener('click', function() {
         var myModal = new bootstrap.Modal(document.getElementById('modal-tema'));
         myModal.show();
+        console.log("Abrindo Modal")
     });
 
 // Enviar o formulário quando o botão "Adicionar Temas" for clicado
     document.getElementById('modal-tema-form').addEventListener('submit', function(e) {
         e.preventDefault(); // Impede o envio normal do formulário
-
+        console.log("Envio Clicado")
         // Faça a requisição AJAX para enviar o formulário
         var form = this;
         var formData = new FormData(form);
@@ -55,8 +56,7 @@ $(document).ready(function (){
     });
 
 
-    // $('.add_theme').click(func
-tion (){
+    // $('.add_theme').click(function ()
     //
     //     $('.content_theme').append('<div class="ms-2 mb-2">'+
     //         '<input type="text" id="book_add_theme_to_books_attributes_'+count_theme_on_book+'theme_name" class="form-control" value="">'+

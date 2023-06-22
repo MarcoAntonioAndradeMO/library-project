@@ -42,7 +42,7 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
-    @book = book.find(params[:id])
+    @book = Book.find(params[:id])
 
     if @book.update(book_params)
       redirect_to @book, notice: "Temas adicionados com sucesso!"
@@ -81,7 +81,7 @@ class BooksController < ApplicationController
     # Only allow a list of trusted parameters through.
   def book_params
     params.require(:book).permit(:book_name,
-                                  :year, :isbn, :quantity, :theme_ids, :theme,
+                                  :year, :isbn, :quantity, :theme_id, :theme,
                                  add_author_to_books_attributes: [:author_id] )
   end
   end
