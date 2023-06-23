@@ -27,6 +27,7 @@
             <%= form.label :theme_id, "Nome do tema:" %><br>
             <%= form.collection_select :theme_id, Theme.all, :id, :theme, {}, class:"form-control", value: theme.object.theme.theme  %>
           </div>
+
           <%= form.submit "Adicionar Temas", class: "btn-primary" %>
         <% end %>
       <% end %>
