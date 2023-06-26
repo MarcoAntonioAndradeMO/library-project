@@ -24,15 +24,16 @@ $(document).ready(function (){
 
 // Abrir o modal quando o botão "Adicionar Tema" for clicado
     document.getElementById('add-tema').addEventListener('click', function() {
-        var myModal = new bootstrap.Modal(document.getElementById('modal-tema'));
-        myModal.show();
+        var modalTema = new bootstrap.Modal(document.getElementById('modalTema'));
+        modalTema.show();
         console.log("Abrindo Modal")
     });
 
 // Enviar o formulário quando o botão "Adicionar Temas" for clicado
-    document.getElementById('modal-tema-form').addEventListener('submit', function(e) {
+    document.getElementById('modalTema').addEventListener('submit', function(e) {
         e.preventDefault(); // Impede o envio normal do formulário
         console.log("Envio Clicado")
+
         // Faça a requisição AJAX para enviar o formulário
         var form = this;
         var formData = new FormData(form);
@@ -41,6 +42,7 @@ $(document).ready(function (){
             method: form.method,
             body: formData
         }).then(function(response) {
+
             // Lógica para lidar com a resposta da requisição (por exemplo, exibir uma mensagem de sucesso)
             if (response.ok) {
                 alert('Temas adicionados com sucesso!');
@@ -54,6 +56,7 @@ $(document).ready(function (){
             alert('Ocorreu um erro ao enviar o formulário.');
         });
     });
+
 
 
     // $('.add_theme').click(function ()

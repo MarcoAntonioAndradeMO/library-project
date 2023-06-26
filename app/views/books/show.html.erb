@@ -1,44 +1,53 @@
-<p style="color: green"><%= notice %></p>
+<body data-turbo="false">
+  <p style="color: green"><%= notice %></p>
 
-<h1>Detalhes do Livro</h1><br>
+  <h1>Detalhes do Livro</h1><br>
 
-<div class="ms-2">
-  <%= render @book %>
-</div>
+  <div class="ms-2">
+    <%= render @book %>
+  </div>
 
-<div class="d-flex justify-content-lg-end">
-  <button type="button" class="btn btn-primary" id="add-tema" data-bs-toggle="modal" data-bs-target="#modal-tema">Adicionar Tema</button>
-</div>
+  <div class="d-flex justify-content-lg-end">
+    <button type="button" class="btn btn-primary" id="add-tema" data-bs-toggle="modal" data-bs-target="#modalTema">Adicionar Tema</button>
+  </div>
 
-<script type="text/javascript">
-    var count_themes_on_book = <%=@book.add_theme_to_books.count %>
-</script>
+  <script type="text/javascript">
+      var count_themes_on_book = <%=@book.add_theme_to_books.count %>
+  </script>
 
-<div class="modal" id="modal-tema" data-turbo="false">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Adicionando um tema ao livro</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal" id="modalTema" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Adicionando um tema ao livro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <%= form_with(model: @book, id: 'modalTema-form') do |form| %>
+            <%= form.fields_for :add_theme_to_books do |theme|  %>
+
+              <div class="field">
+                <%= form.label :theme_id, "Nome do tema:" %><br>
+                <input type="select" class="form-control" value="<%=theme.object.theme.theme %>">
+                <%=theme.hidden_field :theme_id %>
+
+                <%#= form.collection_select :theme_id, Theme.all, :id, :theme, {}, class:"form-control", value: theme.object.theme.theme  %>
+              </div>
+
+              <button type="button" class="btn btn-primary add_theme">Adicionar Tema</button>
+              <%#= form.submit "Adicionar Temas", class: "btn-primary" %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-      <%= form_with(model: @book, id: 'modal-tema-form') do |form| %>
-        <%= form.fields_for :add_theme_to_books do |theme|  %>
-          <div class="field">
-            <%= form.label :theme_id, "Nome do tema:" %><br>
-            <%= form.collection_select :theme_id, Theme.all, :id, :theme, {}, class:"form-control", value: theme.object.theme.theme  %>
-          </div>
-
-          <%= form.submit "Adicionar Temas", class: "btn-primary" %>
-        <% end %>
-      <% end %>
     </div>
   </div>
-</div>
 
-<div class="p-3">
   <div class="p-3">
-  <%= link_to "Editar", edit_book_path(@book), :class => "btn btn-primary" %>
-  <%= link_to "Voltar", books_path , :class => "btn btn-primary"%>
+    <div class="p-3">
+      <%= link_to "Editar", edit_book_path(@book), :class => "btn btn-primary" %>
+      <%= link_to "Voltar", books_path , :class => "btn btn-primary"%>
+    </div>
+    <%= button_to "Apagar Livro", @book, method: :delete, :class => "btn btn-danger"%>
   </div>
-  <%= button_to "Apagar Livro", @book, method: :delete, :class => "btn btn-danger"%>
-</div>
+</body>

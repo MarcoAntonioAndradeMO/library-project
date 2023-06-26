@@ -8,6 +8,7 @@ class Book < ApplicationRecord
   accepts_nested_attributes_for :add_author_to_books
   attr_accessor :author_signature
 
+  accepts_nested_attributes_for :add_theme_to_books
   attr_accessor :theme
 
   def add_author(author)
