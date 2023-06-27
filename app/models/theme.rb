@@ -1,4 +1,7 @@
 class Theme < ApplicationRecord
+  validates :theme, uniqueness: true
+
+
   has_many :add_theme_to_books
   has_many :books, through: :add_theme_to_books
 
