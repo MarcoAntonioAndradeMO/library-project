@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+  validates :isbn, uniqueness: true
+
   has_many :add_author_to_books
   has_many :authors, through: :add_author_to_books, dependent: :destroy
 
