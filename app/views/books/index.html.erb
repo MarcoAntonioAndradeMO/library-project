@@ -37,7 +37,12 @@
       <% @books.each do |book| %>
       <tr>
         <td><%= book.book_name %></td>
-        <td><%= book.author_ids %></td>
+        <td>
+          <% book.authors.each do |author| %>
+            <%= author.signature %>
+            <br>
+          <% end %>
+        </td>
         <td><%= book.year %></td>
         <td><%= book.isbn %></td>
         <td><%= book.quantity %></td>
