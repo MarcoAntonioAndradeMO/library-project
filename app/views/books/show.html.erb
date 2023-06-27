@@ -21,8 +21,8 @@
         <div class="modal-body">
           <%= form_with(url: add_theme_book_path(@book), method: :post) do |form| %>
             <div class="field">
-              <%= form.label :theme_id, "ID do tema:" %><br>
-              <%= form.text_field :theme_id, class: "form-control" %>
+              <%= form.label :theme_id, "Nome do tema:" %><br>
+              <%= form.collection_select :theme_id, Theme.all, :id, :theme, {}, class: "form-select" %>
             </div>
             <button type="submit" class="btn btn-primary add_theme">Adicionar Tema</button>
           <% end %>
