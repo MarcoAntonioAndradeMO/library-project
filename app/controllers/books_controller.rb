@@ -20,6 +20,16 @@ class BooksController < ApplicationController
   def edit
   end
 
+  # POST /Add theme to Book
+  def add_theme
+    @book = Book.find(params[:id])
+    theme_id = params[:theme_id]
+
+    @book.themes << Theme.find(theme_id)
+
+    redirect_to @book, notice: "Tema adicionado ao Livro com sucesso."
+  end
+
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)

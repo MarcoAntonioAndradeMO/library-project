@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :students
   resources :welcome
 
+  resources :books do
+    post 'add_theme', on: :member
+  end
+
 
 
 

@@ -11,10 +11,6 @@
     <button type="button" class="btn btn-primary" id="add-tema" data-bs-toggle="modal" data-bs-target="#modalTema">Adicionar Tema</button>
   </div>
 
-  <script type="text/javascript">
-      var count_themes_on_book = <%=@book.add_theme_to_books.count %>
-  </script>
-
   <div class="modal" id="modalTema" >
     <div class="modal-dialog">
       <div class="modal-content">
@@ -23,20 +19,12 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <%= form_with(model: @book, id: 'modalTema-form') do |form| %>
-            <%= form.fields_for :add_theme_to_books do |theme|  %>
-
-              <div class="field">
-                <%= form.label :theme_id, "Nome do tema:" %><br>
-                <input type="select" class="form-control" value="<%=theme.object.theme.theme %>">
-                <%=theme.hidden_field :theme_id %>
-
-                <%#= form.collection_select :theme_id, Theme.all, :id, :theme, {}, class:"form-control", value: theme.object.theme.theme  %>
-              </div>
-
-              <button type="button" class="btn btn-primary add_theme">Adicionar Tema</button>
-              <%#= form.submit "Adicionar Temas", class: "btn-primary" %>
-            <% end %>
+          <%= form_with(url: add_theme_book_path(@book), method: :post) do |form| %>
+            <div class="field">
+              <%= form.label :theme_id, "ID do tema:" %><br>
+              <%= form.text_field :theme_id, class: "form-control" %>
+            </div>
+            <button type="submit" class="btn btn-primary add_theme">Adicionar Tema</button>
           <% end %>
         </div>
       </div>
