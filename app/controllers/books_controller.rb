@@ -75,17 +75,7 @@ class BooksController < ApplicationController
       redirect_to @book, notice: "Livro atualizado com sucesso!"
     else
       render :edit
-    end
-
-
-    respond_to do |format|
-      if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: "Livro Atualizado com Sucesso!" }
-        format.json { render :show, status: :ok, location: @book }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
-      end
+      return
     end
   end
 
