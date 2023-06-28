@@ -38,7 +38,16 @@ class BooksController < ApplicationController
 
     @book.themes.delete(@theme)
 
-    redirect_to @book, notice: 'Tema Removido do Livro com sucesso!'
+    redirect_to @book, notice: 'Tema Removido do Livro!'
+  end
+
+  def remove_author
+    @book = Book.find(params[:id])
+    @author = Author.find(params[:author_id])
+
+    @book.authors.delete(@author)
+
+    redirect_to @book, notice: 'Autor Removido do Livro!'
   end
 
   # POST /books or /books.json
@@ -60,6 +69,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     @themes = Theme.all
+    @author = Author.all
 
     if @book.update(book_params)
       redirect_to @book, notice: "Livro atualizado com sucesso!"
@@ -67,9 +77,10 @@ class BooksController < ApplicationController
       render :edit
     end
 
+
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
+        format.html { redirect_to book_url(@book), notice: "Livro Atualizado com Sucesso!" }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }

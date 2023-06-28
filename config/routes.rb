@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
     member do
       post 'remove_theme/:theme_id', to: 'books#remove_theme', as: :remove_theme
+      post 'remove_author/:author_id', to: 'books#remove_author', as: :remove_author
     end
   end
 

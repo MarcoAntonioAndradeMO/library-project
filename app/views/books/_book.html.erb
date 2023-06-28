@@ -19,12 +19,20 @@
     <%= book.quantity %>
   </p>
 
-  <p>
-    <strong>Autores:</strong>
-    <% book.authors.each  do |author| %>
-      <%= author.signature %> <br />
-    <% end %>
-  </p>
+  <div class="pb-3">
+    <div class="border border-black p-3">
+      <strong>Autores:</strong> <br>
+      <% book.authors.each  do |author| %>
+        <p>
+          <%= author.signature %>,
+          <%= form_with(url: remove_author_book_path(@book, author), method: :post, local: true) do |form| %>
+          <%= form.submit 'Remover', data: { confirm: 'Tem certeza que deseja remover este autor do livro?' }%>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+
 
   <div class="border border-black p-3">
     <strong>Temas:</strong> <br>
