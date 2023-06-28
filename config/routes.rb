@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resources :books do
     post 'add_theme', on: :member
+
+    member do
+      post 'remove_theme/:theme_id', to: 'books#remove_theme', as: :remove_theme
+    end
   end
 
 

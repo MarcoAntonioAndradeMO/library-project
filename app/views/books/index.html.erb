@@ -24,6 +24,7 @@
         <tr>
           <th>Nome do Livro</th>
           <th>Autor</th>
+          <th>Temas</th>
           <th>Ano</th>
           <th>ISBN</th>
           <th>Quantidade</th>
@@ -40,6 +41,12 @@
         <td>
           <% book.authors.each do |author| %>
             <%= author.signature %> ,
+            <br>
+          <% end %>
+        </td>
+        <td>
+          <% book.themes.each do |themes| %>
+            <%= themes.theme %> ,
             <br>
           <% end %>
         </td>

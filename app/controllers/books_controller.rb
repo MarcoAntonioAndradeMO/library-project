@@ -18,6 +18,8 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
+    @book = Book.find(params[:id])
+    @themes = Theme.all
   end
 
   # POST /Add theme to Book
@@ -28,6 +30,15 @@ class BooksController < ApplicationController
     @book.themes << theme
 
     redirect_to @book, notice: "Tema adicionado ao Livro com sucesso."
+  end
+
+  def remove_theme
+    @book = Book.find(params[:id])
+    @theme = Theme.find(params[:theme_id])
+
+    @book.themes.delete(@theme)
+
+    redirect_to @book, notice: 'Tema Removido do Livro com sucesso!'
   end
 
   # POST /books or /books.json
@@ -42,20 +53,19 @@ class BooksController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
-
     end
   end
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
     @book = Book.find(params[:id])
+    @themes = Theme.all
 
     if @book.update(book_params)
-      redirect_to @book, notice: "Temas adicionados com sucesso!"
+      redirect_to @book, notice: "Livro atualizado com sucesso!"
     else
       render :edit
     end
-
 
     respond_to do |format|
       if @book.update(book_params)

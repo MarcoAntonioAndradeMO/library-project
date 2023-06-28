@@ -1,4 +1,4 @@
-<div id="<%= dom_id book %>">
+<div id="<%= dom_id book %>" class="pb-3">
   <p>
     <strong>Book name:</strong>
     <%= book.book_name %>
@@ -26,11 +26,16 @@
     <% end %>
   </p>
 
-  <p>
-    <strong>Temas:</strong>
+  <div class="border border-black p-3">
+    <strong>Temas:</strong> <br>
     <% book.themes.each  do |theme| %>
-      <%= theme.theme %> <br/>
+      <p>
+        <%= theme.theme %>,
+        <%= form_with(url: remove_theme_book_path(@book, theme), method: :post, local: true) do |form| %>
+          <%= form.submit 'Remover', data: { confirm: 'Tem certeza que deseja remover este tema do livro?' }%>
+        <% end %>
+      </p>
     <% end %>
-  </p>
+  </div>
 
 </div>
