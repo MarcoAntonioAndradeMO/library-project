@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :loans
   #devise_for :users
   get 'dashboard/index'
   resources :books

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_132936) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_29_125722) do
   create_table "add_author_to_books", force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "book_id", null: false
@@ -55,6 +55,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_132936) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "loans", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "employer_id", null: false
+    t.integer "student_id", null: false
+    t.date "loan_date"
+    t.date "return"
+    t.date "forecasted_return"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_loans_on_book_id"
+    t.index ["employer_id"], name: "index_loans_on_employer_id"
+    t.index ["student_id"], name: "index_loans_on_student_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "proper_name"
     t.string "registration"
@@ -86,4 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_132936) do
   add_foreign_key "add_author_to_books", "books"
   add_foreign_key "add_theme_to_books", "books"
   add_foreign_key "add_theme_to_books", "themes"
+  add_foreign_key "loans", "books"
+  add_foreign_key "loans", "employers"
+  add_foreign_key "loans", "students"
 end
