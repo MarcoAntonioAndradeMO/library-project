@@ -13,17 +13,17 @@
 
   <div class="mb-3 ms-2">
     <%= form.label "Aluno", style: "display: block" %>
-    <%= form.collection_select :student_id, @students, :id, :proper_name, prompt: true , class: "form-select" %>
+    <%= form.collection_select :student_id, @students, :id, :proper_name, {prompt: true} , class: "form-select" %>
   </div>
 
   <div class="mb-3 ms-2">
     <%= form.label "Livro", style: "display: block" %>
-    <%= form.collection_select :book_id, @book, :id, :book_name, prompt: true %>
+    <%= form.collection_select :book_id, @book, :id, :book_name, {prompt: true} , class: "form-select" %>
   </div>
 
   <div class="mb-3 ms-2">
     <%= form.label "Funcionário", style: "display: block" %>
-    <%= form.collection_select :employer_id, @employers, :id, :proper_name, prompt: true %>
+    <%= form.collection_select :employer_id, @employers, :id, :proper_name, {prompt: true} , class: "form-select" %>
   </div>
 
   <div class="mb-3 ms-2">

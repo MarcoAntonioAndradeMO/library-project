@@ -38,10 +38,12 @@
       <tbody>
       <% @loans.each do |loan| %>
         <tr>
-<!--          <td><%#= student.proper_name %></td>-->
-<!--          <td><%#= student.registration %></td>-->
-<!--          <td><%#= student.course %></td>-->
-<!--          <td><%#= student.cpf %></td>-->
+          <td><%= loan.student.proper_name %></td>
+          <td><%= loan.book.book_name %></td>
+          <td><%= loan.employer.proper_name %></td>
+          <td><%= loan.loan_date %></td>
+          <td><%= loan.forecasted_return %></td>
+          <td><%= loan.return %></td>
           <td><%= link_to "Editar", edit_loan_path(loan), :class => "btn btn-primary" %></td>
           <td><%= link_to "Deletar", loan, method: :delete, data: {confirm: ("Tem certeza que deseja apagar ?")}, :class => "btn btn-primary" %></td>
         </tr>

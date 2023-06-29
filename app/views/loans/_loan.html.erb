@@ -1,17 +1,17 @@
 <div id="<%= dom_id loan %>">
   <p>
     <strong>Livro:</strong>
-    <%= loan.book_id %>
+    <%= loan.book.book_name%>
   </p>
 
   <p>
     <strong>Funcionário:</strong>
-    <%= loan.employer_id %>
+    <%= loan.employer.proper_name %>
   </p>
 
   <p>
     <strong>Aluno:</strong>
-    <%= loan.student_id %>
+    <%= loan.student.proper_name %>
   </p>
 
   <p>

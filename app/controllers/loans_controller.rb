@@ -20,6 +20,10 @@ class LoansController < ApplicationController
 
   # GET /loans/1/edit
   def edit
+    @loan = Loan.find(params[:id])
+    @book = Book.all
+    @employers = Employer.all
+    @students = Student.all
   end
 
   # POST /loans or /loans.json
