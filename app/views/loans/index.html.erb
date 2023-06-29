@@ -1,6 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Empréstimos</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-8">
+      <h1 class="h2 mt-4 mb-4">Empréstimos</h1>
+      <div class="input-group mb-5 align-items-center">
+        <span class="h5 ps-4">Período da Pesquisa: </span><label class="ms-2" for="inicio">De: </label>
+        <input id="data-inicio" class="form-control ms-2" type="date" /><label class="ms-2" for="final">Até: </label>
+        <input id="data-final" class="form-control ms-2" type="date" />
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="container d-flex justify-content-end p-3">
     <%= link_to "Novo Empréstimo", new_loan_path, :class => "btn btn-primary" %>
