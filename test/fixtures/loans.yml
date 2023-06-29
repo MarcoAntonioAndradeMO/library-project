@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book: one
+  employer: one
+  student: one
+  loan_date: 2023-06-29
+  return: 2023-06-29
+  forecasted_return: 2023-06-29
+
+two:
+  book: two
+  employer: two
+  student: two
+  loan_date: 2023-06-29
+  return: 2023-06-29
+  forecasted_return: 2023-06-29
