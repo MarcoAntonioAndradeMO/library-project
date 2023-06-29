@@ -13,6 +13,9 @@ class LoansController < ApplicationController
   # GET /loans/new
   def new
     @loan = Loan.new
+    @book = Book.all
+    @employers = Employer.all
+    @students = Student.all
   end
 
   # GET /loans/1/edit
@@ -22,10 +25,13 @@ class LoansController < ApplicationController
   # POST /loans or /loans.json
   def create
     @loan = Loan.new(loan_params)
+    @book = Book.all
+    @employers = Employer.all
+    @students = Student.all
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to loan_url(@loan), notice: "Loan was successfully created." }
+        format.html { redirect_to loan_url(@loan), notice: "Empréstimo Criado com Sucesso!" }
         format.json { render :show, status: :created, location: @loan }
       else
         format.html { render :new, status: :unprocessable_entity }

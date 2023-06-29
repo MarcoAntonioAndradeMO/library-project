@@ -13,17 +13,17 @@
 
   <div class="mb-3 ms-2">
     <%= form.label "Aluno", style: "display: block" %>
-    <%= form.text_field :student_id, class: "form-control" %>
+    <%= form.collection_select :student_id, @students, :id, :proper_name, prompt: true , class: "form-select" %>
   </div>
 
   <div class="mb-3 ms-2">
     <%= form.label "Livro", style: "display: block" %>
-    <%= form.text_field :book_id, class: "form-control" %>
+    <%= form.collection_select :book_id, @book, :id, :book_name, prompt: true %>
   </div>
 
   <div class="mb-3 ms-2">
     <%= form.label "Funcionário", style: "display: block" %>
-    <%= form.text_field :employer_id, class: "form-control" %>
+    <%= form.collection_select :employer_id, @employers, :id, :proper_name, prompt: true %>
   </div>
 
   <div class="mb-3 ms-2">

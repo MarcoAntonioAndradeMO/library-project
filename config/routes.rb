@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :employers
   resources :students
   resources :welcome
+  resources :loans
 
   resources :books do
     post 'add_theme', on: :member
@@ -16,7 +17,19 @@ Rails.application.routes.draw do
       post 'remove_theme/:theme_id', to: 'books#remove_theme', as: :remove_theme
       post 'remove_author/:author_id', to: 'books#remove_author', as: :remove_author
     end
+
+    resources :loans, only: [:new, :create]
   end
+
+  resources :employers do
+    resources :loans, only: [:new, :create]
+  end
+
+  resources :students do
+    resources :loans, only: [:new, :create]
+  end
+
+
 
 
 
