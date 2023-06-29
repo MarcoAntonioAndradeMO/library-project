@@ -1,14 +1,46 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Loans</h1>
+<h1>Empréstimos</h1>
 
-<div id="loans">
-  <% @loans.each do |loan| %>
-    <%= render loan %>
-    <p>
-      <%= link_to "Show this loan", loan %>
-    </p>
-  <% end %>
+<div class="container d-flex justify-content-end p-3">
+    <%= link_to "Novo Empréstimo", new_loan_path, :class => "btn btn-primary" %>
 </div>
 
-<%= link_to "New loan", new_loan_path %>
+<div class="container">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Aluno</th>
+        <th>Livro</th>
+        <th>Funcionário</th>
+        <th>Data de Empréstimo</th>
+        <th>Previsão de Devolução</th>
+        <th>Data de Devolução</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @loans.each do |loan| %>
+        <tr>
+<!--          <td><%#= student.proper_name %></td>-->
+<!--          <td><%#= student.registration %></td>-->
+<!--          <td><%#= student.course %></td>-->
+<!--          <td><%#= student.cpf %></td>-->
+          <td><%= link_to "Editar", edit_loan_path(loan), :class => "btn btn-primary" %></td>
+          <td><%= link_to "Deletar", loan, method: :delete, data: {confirm: ("Tem certeza que deseja apagar ?")}, :class => "btn btn-primary" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div id="loans">
+</div>
+
+

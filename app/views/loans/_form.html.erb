@@ -11,37 +11,38 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :book_id, style: "display: block" %>
-    <%= form.text_field :book_id %>
+  <div class="mb-3 ms-2">
+    <%= form.label "Aluno", style: "display: block" %>
+    <%= form.text_field :student_id, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :employer_id, style: "display: block" %>
-    <%= form.text_field :employer_id %>
+  <div class="mb-3 ms-2">
+    <%= form.label "Livro", style: "display: block" %>
+    <%= form.text_field :book_id, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :student_id, style: "display: block" %>
-    <%= form.text_field :student_id %>
+  <div class="mb-3 ms-2">
+    <%= form.label "Funcionário", style: "display: block" %>
+    <%= form.text_field :employer_id, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :loan_date, style: "display: block" %>
-    <%= form.date_field :loan_date %>
+  <div class="mb-3 ms-2">
+    <%= form.label "Data de Empréstimo", style: "display: block" %>
+    <%= form.date_field :loan_date, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :return, style: "display: block" %>
-    <%= form.date_field :return %>
+  <div class="mb-3 ms-2">
+    <%= form.label "Previsão de Retorno", style: "display: block" %>
+    <%= form.date_field :forecasted_return, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :forecasted_return, style: "display: block" %>
-    <%= form.date_field :forecasted_return %>
+  <div class="mb-3 ms-2">
+    <%= form.label "Devolução", style: "display: block" %>
+    <%= form.date_field :return, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="mb-3 ms-2">
+    <%= submit_tag "Enviar", class: "submit-button btn btn-success" %>
   </div>
+
 <% end %>

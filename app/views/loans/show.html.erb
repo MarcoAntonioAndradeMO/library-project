@@ -2,9 +2,10 @@
 
 <%= render @loan %>
 
-<div>
-  <%= link_to "Edit this loan", edit_loan_path(@loan) %> |
-  <%= link_to "Back to loans", loans_path %>
-
-  <%= button_to "Destroy this loan", @loan, method: :delete %>
+<div class="p-3">
+  <div class="p-3">
+    <%= link_to "Voltar", loans_path, :class => "btn btn-primary" %>
+    <%= link_to "Editar", edit_loan_path(@loan), :class => "btn btn-primary" %>
+  </div>
+  <%= button_to "Apagar Empréstimo", @loan, method: :delete, :class => "btn btn-danger" %>
 </div>
