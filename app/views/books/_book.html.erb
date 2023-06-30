@@ -24,9 +24,9 @@
       <strong>Autores:</strong> <br>
       <% book.authors.each  do |author| %>
         <p>
-          <%= author.signature %>,
+          <%= author.signature %>
           <%= form_with(url: remove_author_book_path(@book, author), method: :post, local: true) do |form| %>
-          <%= form.submit 'Remover', data: { confirm: 'Tem certeza que deseja remover este autor do livro?' }%>
+          <%= form.submit 'Remover', data: { confirm: 'Tem certeza que deseja remover este autor do livro?' }, class: "btn btn-danger" %>
           <% end %>
         </p>
       <% end %>
