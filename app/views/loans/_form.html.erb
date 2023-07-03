@@ -18,7 +18,7 @@
 
   <div class="mb-3 ms-2">
     <%= form.label "Livro", style: "display: block" %>
-    <%= form.collection_select :book_id, @book, :id, :book_name, {prompt: true} , class: "form-select" %>
+    <%= form.collection_select :book_id, Book.all, :id, :book_name, {prompt: true} , class: "form-select" %>
   </div>
 
   <div class="mb-3 ms-2">

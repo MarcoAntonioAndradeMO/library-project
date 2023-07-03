@@ -29,9 +29,11 @@ Rails.application.routes.draw do
     resources :loans, only: [:new, :create]
   end
 
-
-
-
+  resources :loans do
+    member do
+      post 'loans/:id/add_book/:book_id', to: 'loans#add_book', as: 'add_book'
+    end
+  end
 
 
   root to: 'welcome#index'

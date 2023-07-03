@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_29_125722) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_135529) do
   create_table "add_author_to_books", force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "book_id", null: false
@@ -18,6 +18,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_125722) do
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_add_author_to_books_on_author_id"
     t.index ["book_id"], name: "index_add_author_to_books_on_book_id"
+  end
+
+  create_table "add_book_to_loans", force: :cascade do |t|
+    t.integer "book_id", null: false
+    t.integer "loan_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_add_book_to_loans_on_book_id"
+    t.index ["loan_id"], name: "index_add_book_to_loans_on_loan_id"
   end
 
   create_table "add_theme_to_books", force: :cascade do |t|
@@ -98,6 +107,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_125722) do
 
   add_foreign_key "add_author_to_books", "authors"
   add_foreign_key "add_author_to_books", "books"
+  add_foreign_key "add_book_to_loans", "books"
+  add_foreign_key "add_book_to_loans", "loans"
   add_foreign_key "add_theme_to_books", "books"
   add_foreign_key "add_theme_to_books", "themes"
   add_foreign_key "loans", "books"

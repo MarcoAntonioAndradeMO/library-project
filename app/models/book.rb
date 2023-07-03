@@ -7,7 +7,8 @@ class Book < ApplicationRecord
   has_many :add_theme_to_books
   has_many :themes, through: :add_theme_to_books
 
-  has_many :loans
+  has_many :add_book_to_loans
+  has_many :loans, through: :add_book_to_loans
 
   accepts_nested_attributes_for :add_author_to_books
   attr_accessor :author_signature

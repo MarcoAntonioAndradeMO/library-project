@@ -26,9 +26,28 @@ class LoansController < ApplicationController
     @students = Student.all
   end
 
+  def add_book
+    @loan = Loan.find(params[:id])
+    book = Book.find(params[:book_id])
+
+    @loan.books << book
+
+    redirect_to loan_path(loan), notice: "Livro Adicionado ao Empréstimo com Sucesso."
+  end
+
+  def remove_book
+    @loan = Loan.find(params[:id])
+    @book = Book.find(params[:book_id])
+
+    @loan.books.delete(@book)
+
+    redirect_to @loan, notice: "Livro removido de Empréstimo."
+  end
+
   # POST /loans or /loans.json
   def create
     @loan = Loan.new(loan_params)
+    @loan.add_book(params[:book_id])
     @book = Book.all
     @employers = Employer.all
     @students = Student.all
@@ -46,6 +65,11 @@ class LoansController < ApplicationController
 
   # PATCH/PUT /loans/1 or /loans/1.json
   def update
+    @loan = Loan.find(params[:id])
+    @book = Book.all
+    @employers = Employer.all
+    @students = Student.all
+
     respond_to do |format|
       if @loan.update(loan_params)
         format.html { redirect_to loan_url(@loan), notice: "Loan was successfully updated." }
