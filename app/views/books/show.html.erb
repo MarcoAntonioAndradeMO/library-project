@@ -20,7 +20,7 @@
         </div>
         <div class="modal-body">
           <%= form_with(url: add_theme_book_path(@book), method: :post) do |form| %>
-            <div class="field">
+            <div class="field pb-2">
               <%= form.label :theme_id, "Nome do tema:" %><br>
               <%= form.collection_select :theme_id, Theme.all, :id, :theme, {}, class: "form-select" %>
             </div>

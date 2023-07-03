@@ -40,7 +40,7 @@
       <p>
         <%= theme.theme %>,
         <%= form_with(url: remove_theme_book_path(@book, theme), method: :post, local: true) do |form| %>
-          <%= form.submit 'Remover', data: { confirm: 'Tem certeza que deseja remover este tema do livro?' }%>
+          <%= form.submit 'Remover', data: { confirm: 'Tem certeza que deseja remover este tema do livro?' }, class: "btn btn-danger"%>
         <% end %>
       </p>
     <% end %>
