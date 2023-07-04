@@ -1,8 +1,22 @@
 <div id="<%= dom_id loan %>">
-  <p>
-    <strong>Livro:</strong>
-    <%#= loan.book.book_name%>
-  </p>
+
+  <div class="pb-3">
+    <div class="border border-black p-3">
+      <strong>Livros:</strong> <br>
+      <% loan.books.each  do |book| %>
+        <p>
+          <%= book.book_name %>,
+          <%= form_with(url: remove_book_loan_path(@loan, book), method: :post, local: true) do |form| %>
+            <%= form.submit 'Remover', data: { confirm: 'Tem certeza que deseja remover este Livro do Empréstimo?' }, class: "btn btn-danger" %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
+
+    <div class="d-flex justify-content-lg-end pt-2">
+      <button type="button" class="btn btn-primary" id="add-book" data-bs-toggle="modal" data-bs-target="#modalBook">Adicionar Livro</button>
+    </div>
+  </div>
 
   <p>
     <strong>Funcionário:</strong>

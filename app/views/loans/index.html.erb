@@ -29,7 +29,7 @@
         <th>Data de Empréstimo</th>
         <th>Previsão de Devolução</th>
         <th>Data de Devolução</th>
-        <th>Editar</th>
+        <th>Detalhes</th>
         <th>Deletar</th>
         <th colspan="3"></th>
       </tr>
@@ -39,12 +39,17 @@
       <% @loans.each do |loan| %>
         <tr>
           <td><%= loan.student.proper_name %></td>
-<!--          <td><%#= loan.book.book_name %></td>-->
+          <td>
+            <% loan.books.each do |book| %>
+              <%= book.book_name %> ,
+              <br>
+            <% end %>
+          </td>
           <td><%= loan.employer.proper_name %></td>
           <td><%= loan.loan_date %></td>
           <td><%= loan.forecasted_return %></td>
           <td><%= loan.return %></td>
-          <td><%= link_to "Editar", edit_loan_path(loan), :class => "btn btn-primary" %></td>
+          <td><%= link_to "Visualizar", loan, method: :post, :class => "btn btn-primary" %></td>
           <td><%= link_to "Deletar", loan, method: :delete, data: {confirm: ("Tem certeza que deseja apagar ?")}, :class => "btn btn-primary" %></td>
         </tr>
       <% end %>

@@ -22,6 +22,26 @@ class LoansController < ApplicationController
     @loan = Loan.find(params[:id])
     @employers = Employer.all
     @students = Student.all
+
+    @book = Book.all
+  end
+
+  def add_book
+    @loan = Loan.find(params[:id])
+    book = Book.find(params[:book_id])
+
+    @loan.books << book
+
+    redirect_to @loan, notice: "Livro adicionado ao Empréstimo."
+  end
+
+  def remove_book
+    @loan = Loan.find(params[:id])
+    @book = Book.find(params[:book_id])
+
+    @loan.books.delete(@book)
+
+    redirect_to @loan, notice: "Livro removido do Empréstimo."
   end
 
   # POST /loans or /loans.json
@@ -47,6 +67,8 @@ class LoansController < ApplicationController
     @employers = Employer.all
     @students = Student.all
 
+    @book = Book.all
+
     respond_to do |format|
       if @loan.update(loan_params)
         format.html { redirect_to loan_url(@loan), notice: "Loan was successfully updated." }
@@ -63,7 +85,7 @@ class LoansController < ApplicationController
     @loan.destroy
 
     respond_to do |format|
-      format.html { redirect_to loans_url, notice: "Loan was successfully destroyed." }
+      format.html { redirect_to loans_url, notice: "Empréstimo Apagado com sucesso!" }
       format.json { head :no_content }
     end
   end
@@ -76,7 +98,8 @@ class LoansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def loan_params
-      params.require(:loan).permit(:employer_id, :student_id, :loan_date, :return, :forecasted_return)
+      params.require(:loan).permit(:employer_id, :student_id, :loan_date, :return, :forecasted_return,
+                                   add_book_to_loans_attributes: [:book_id])
     end
 end
 

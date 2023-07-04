@@ -30,8 +30,10 @@ Rails.application.routes.draw do
   end
 
   resources :loans do
+    post 'add_book', on: :member
+
     member do
-      post 'loans/:id/add_book/:book_id', to: 'loans#add_book', as: 'add_book'
+      post 'remove_book/:book_id', to: 'loans#remove_book', as: :remove_book
     end
   end
 
