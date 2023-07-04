@@ -1,2 +1,27 @@
-<!--As Informações e renderizações de cada funcionário estão sendo feitas-->
-<!--diretamente em "employers/index.html.erb"-->
+<div id="<%= dom_id employer %>">
+  <p>
+    <strong>Nome Próprio:</strong>
+    <%= employer.proper_name %>
+  </p>
+
+  <p>
+    <strong>Cargo:</strong>
+    <%= employer.function %>
+  </p>
+
+  <p>
+    <strong>Data de Admissão:</strong>
+    <%= employer.effectuation_date %>
+  </p>
+
+  <p>
+    <strong>Data de Demissão:</strong>
+    <%= employer.resignation_date %>
+  </p>
+
+  <p>
+    <strong>Empréstimos:</strong>
+    <%= employer.loans %>
+  </p>
+
+</div>
