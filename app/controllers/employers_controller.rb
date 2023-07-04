@@ -4,10 +4,17 @@ class EmployersController < ApplicationController
   # GET /employers or /employers.json
   def index
     @employers = Employer.all
+    @loan_count = Hash.new(0)
+
+    @employers.each do |employer|
+      @loan_count[employer.id] = employer.loans.count
+    end
   end
 
   # GET /employers/1 or /employers/1.json
   def show
+    @employer = Employer.find(params[:id])
+    @loan_count = @employer.loans.size
   end
 
   # GET /employers/new
