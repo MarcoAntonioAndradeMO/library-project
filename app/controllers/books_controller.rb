@@ -28,7 +28,7 @@ class BooksController < ApplicationController
     theme = Theme.find(params[:theme_id])
 
     if @book.themes.include?(theme)
-      redirect_to @book, alert: "Tema já associado ao livro."
+      redirect_to @book, notice: "Tema já associado ao livro."
     else
       @book.themes << theme
       redirect_to @book, notice: "Tema adicionado ao Livro com sucesso."

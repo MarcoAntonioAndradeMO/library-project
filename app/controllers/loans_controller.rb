@@ -31,7 +31,7 @@ class LoansController < ApplicationController
     book = Book.find(params[:book_id])
 
     if @loan.books.include?(book)
-      redirect_to @loan, alert: "Este livro já az parte do Empréstimo."
+      redirect_to @loan, notice: "Este livro já faz parte do Empréstimo."
     else
       @loan.books << book
       redirect_to @loan, notice: "Livro adicionado ao Empréstimo."
