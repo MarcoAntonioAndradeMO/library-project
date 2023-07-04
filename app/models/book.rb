@@ -24,6 +24,4 @@ class Book < ApplicationRecord
     theme.book = self
   end
 
-  # scope :available_for_loan, -> { where.not(id: Loan.select(:book_id).where.not(return: nil)) }
-
 end
