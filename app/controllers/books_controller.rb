@@ -27,9 +27,12 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     theme = Theme.find(params[:theme_id])
 
-    @book.themes << theme
-
-    redirect_to @book, notice: "Tema adicionado ao Livro com sucesso."
+    if @book.themes.include?(theme)
+      redirect_to @book, alert: "Tema já associado ao livro."
+    else
+      @book.themes << theme
+      redirect_to @book, notice: "Tema adicionado ao Livro com sucesso."
+    end
   end
 
   def remove_theme
