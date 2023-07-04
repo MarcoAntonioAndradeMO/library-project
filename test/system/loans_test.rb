@@ -14,7 +14,6 @@ class LoansTest < ApplicationSystemTestCase
     visit loans_url
     click_on "New loan"
 
-    fill_in "Book", with: @loan.book_id
     fill_in "Employer", with: @loan.employer_id
     fill_in "Forecasted return", with: @loan.forecasted_return
     fill_in "Loan date", with: @loan.loan_date
@@ -30,7 +29,6 @@ class LoansTest < ApplicationSystemTestCase
     visit loan_url(@loan)
     click_on "Edit this loan", match: :first
 
-    fill_in "Book", with: @loan.book_id
     fill_in "Employer", with: @loan.employer_id
     fill_in "Forecasted return", with: @loan.forecasted_return
     fill_in "Loan date", with: @loan.loan_date

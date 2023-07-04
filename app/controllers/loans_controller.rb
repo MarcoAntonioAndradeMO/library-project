@@ -13,7 +13,6 @@ class LoansController < ApplicationController
   # GET /loans/new
   def new
     @loan = Loan.new
-    @book = Book.all
     @employers = Employer.all
     @students = Student.all
   end
@@ -21,34 +20,13 @@ class LoansController < ApplicationController
   # GET /loans/1/edit
   def edit
     @loan = Loan.find(params[:id])
-    @book = Book.all
     @employers = Employer.all
     @students = Student.all
-  end
-
-  def add_book
-    @loan = Loan.find(params[:id])
-    book = Book.find(params[:book_id])
-
-    @loan.books << book
-
-    redirect_to loan_path(loan), notice: "Livro Adicionado ao Empréstimo com Sucesso."
-  end
-
-  def remove_book
-    @loan = Loan.find(params[:id])
-    @book = Book.find(params[:book_id])
-
-    @loan.books.delete(@book)
-
-    redirect_to @loan, notice: "Livro removido de Empréstimo."
   end
 
   # POST /loans or /loans.json
   def create
     @loan = Loan.new(loan_params)
-    @loan.add_book(params[:book_id])
-    @book = Book.all
     @employers = Employer.all
     @students = Student.all
 
@@ -66,7 +44,6 @@ class LoansController < ApplicationController
   # PATCH/PUT /loans/1 or /loans/1.json
   def update
     @loan = Loan.find(params[:id])
-    @book = Book.all
     @employers = Employer.all
     @students = Student.all
 
@@ -99,6 +76,8 @@ class LoansController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def loan_params
-      params.require(:loan).permit(:book_id, :employer_id, :student_id, :loan_date, :return, :forecasted_return)
+      params.require(:loan).permit(:employer_id, :student_id, :loan_date, :return, :forecasted_return)
     end
 end
+
+# ,loan_books_attributes: [:book_id]

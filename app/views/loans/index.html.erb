@@ -39,7 +39,7 @@
       <% @loans.each do |loan| %>
         <tr>
           <td><%= loan.student.proper_name %></td>
-          <td><%= loan.book.book_name %></td>
+<!--          <td><%#= loan.book.book_name %></td>-->
           <td><%= loan.employer.proper_name %></td>
           <td><%= loan.loan_date %></td>
           <td><%= loan.forecasted_return %></td>

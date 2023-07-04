@@ -65,7 +65,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_135529) do
   end
 
   create_table "loans", force: :cascade do |t|
-    t.integer "book_id", null: false
     t.integer "employer_id", null: false
     t.integer "student_id", null: false
     t.date "loan_date"
@@ -73,7 +72,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_135529) do
     t.date "forecasted_return"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_loans_on_book_id"
     t.index ["employer_id"], name: "index_loans_on_employer_id"
     t.index ["student_id"], name: "index_loans_on_student_id"
   end
@@ -111,7 +109,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_135529) do
   add_foreign_key "add_book_to_loans", "loans"
   add_foreign_key "add_theme_to_books", "books"
   add_foreign_key "add_theme_to_books", "themes"
-  add_foreign_key "loans", "books"
   add_foreign_key "loans", "employers"
   add_foreign_key "loans", "students"
 end

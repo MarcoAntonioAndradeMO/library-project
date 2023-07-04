@@ -1,5 +1,4 @@
 class Loan < ApplicationRecord
-  validates :book, uniqueness: true
 
   has_many :add_book_to_loans
   has_many :books, through: :add_book_to_loans
