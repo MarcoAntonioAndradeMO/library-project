@@ -1,7 +1,16 @@
 <div id="<%= dom_id theme %>">
-  <p>
-    <strong>Theme:</strong>
-    <%= theme.theme %>
-  </p>
+
+  <div>
+    <h2>Nome do Tema: <%= theme.theme %></h2>
+  </div>
+
+  <div class="pb-3">
+    <div class="border border-black p-3">
+      <strong>Livros do tema:</strong>
+      <% @theme.books.each do |book| %>
+        <p><%= book.book_name %></p>
+      <% end %>
+    </div>
+  </div>
 
 </div>

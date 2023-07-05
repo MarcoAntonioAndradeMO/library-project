@@ -9,4 +9,13 @@
     <%= author.signature %>
   </p>
 
+  <div class="pb-3">
+    <div class="border border-black p-3">
+      <strong>Livros do Autor:</strong>
+      <% @author.books.each do |book| %>
+        <p><%= book.book_name %></p>
+      <% end %>
+    </div>
+  </div>
+
 </div>
