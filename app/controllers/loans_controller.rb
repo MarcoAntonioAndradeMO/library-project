@@ -26,13 +26,43 @@ class LoansController < ApplicationController
     @book = Book.all
   end
 
+  def add_return
+    @loan = Loan.find(params[:id])
+
+    unless @loan.nil?
+      @loan.update(return: params[:return])
+    end
+
+    if @loan.return.present?
+      flash[:error] = "Devolução já efetuada."
+      render :edit
+    else
+      if @loan.save
+        @loan.books.each do |book|
+          book.borrowed = book.borrowed - 1
+          book.save
+        end
+
+        redirect_to @loan, notice: "Data de devolução adicionada com sucesso."
+      else
+        flash[:error] = "Erro ao adicionar a data de devolução."
+        render :edit
+      end
+    end
+  end
+
+
+
   def add_book
     @loan = Loan.find(params[:id])
     book = Book.find(params[:book_id])
 
-    if @loan.books.include?(book)
+    #if @loan.books.include?(book)
+    if @loan.add_book_to_loans.where(book_id:book.id).present?
       redirect_to @loan, notice: "Este livro já faz parte do Empréstimo."
     else
+      book.borrowed = book.borrowed + 1
+      book.save
       @loan.books << book
       redirect_to @loan, notice: "Livro adicionado ao Empréstimo."
     end

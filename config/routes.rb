@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
   resources :loans do
     post 'add_book', on: :member
+    post 'add_return', on: :member
 
     member do
       post 'remove_book/:book_id', to: 'loans#remove_book', as: :remove_book
