@@ -48,11 +48,45 @@
           <td><%= loan.employer.proper_name %></td>
           <td><%= loan.loan_date %></td>
           <td><%= loan.forecasted_return %></td>
-          <td><%= loan.return %></td>
+          <td>
+            <% if loan.return.blank? %>
+              <div class="d-flex justify-content-lg-end pt-2">
+                <button type="button" class="btn btn-success" id="add-return" data-bs-toggle="modal" data-bs-target="#modalReturn">Adicionar Devolução</button>
+              </div>
+            <% else %>
+              <p>
+                <%= loan.return %>
+              </p>
+            <% end %>
+          </td>
+
           <td><%= link_to "Visualizar", loan, method: :post, :class => "btn btn-primary" %></td>
           <td><%= link_to "Deletar", loan, method: :delete, data: {confirm: ("Tem certeza que deseja apagar ?")}, :class => "btn btn-primary" %></td>
         </tr>
       <% end %>
+
+<!--      <div class="modal" id="modalReturn" >-->
+<!--        <div class="modal-dialog">-->
+<!--          <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--              <h5 class="modal-title">Adicionando data de Devolução</h5>-->
+<!--              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+
+              <%#= form_with(url: add_return_loan_path(@loan), method: :post) do |form| %>
+<!--                <div class="field pb-2">-->
+<!--                  <%#= form.label :return, "Data de Devolução" %><br>-->
+                  <%#= form.date_field :return, class: "form-control" %>
+<!--                </div>-->
+                <%#= form.submit "Adicionar Devolução", class: "btn btn-primary" %>
+              <%# end %>
+
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
       </tbody>
     </table>
   </div>

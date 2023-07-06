@@ -60,6 +60,8 @@ class LoansController < ApplicationController
     #if @loan.books.include?(book)
     if @loan.add_book_to_loans.where(book_id:book.id).present?
       redirect_to @loan, notice: "Este livro já faz parte do Empréstimo."
+    elsif book.borrowed >= book.quantity
+      redirect_to @loan, notice: "Não é possível adicionar esse livro. Todas unidades já foram emprestadas."
     else
       book.borrowed = book.borrowed + 1
       book.save
@@ -115,6 +117,14 @@ class LoansController < ApplicationController
 
   # DELETE /loans/1 or /loans/1.json
   def destroy
+    @loan = Loan.find(params[:id])
+
+    @loan.books.each do |book|
+      book.borrowed -= 1
+      book.save
+    end
+
+    @loan.books.destroy_all
     @loan.destroy
 
     respond_to do |format|
