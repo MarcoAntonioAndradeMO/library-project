@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_05_174335) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_10_140804) do
   create_table "add_author_to_books", force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "book_id", null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_174335) do
 
   create_table "books", force: :cascade do |t|
     t.string "book_name"
-    t.date "year"
+    t.integer "year"
     t.string "isbn"
     t.integer "quantity"
     t.datetime "created_at", null: false

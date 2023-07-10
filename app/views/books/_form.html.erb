@@ -18,9 +18,11 @@
 
   <div class="mb-3 ms-2 position-relative">
     <%= form.label "Autores", style: "display: block" %>
+
     <%# form.text_field :author_signature %>
 <!--    <input type="text" class="form-control autocomplete" id="search_author" name="search_author" />-->
     <%= form.hidden_field :author_id %>
+
     <script type="text/javascript">
       var count_authors_on_book = <%=book.add_author_to_books.count %>;
     </script>
@@ -39,7 +41,7 @@
 
   <div class="mb-3 ms-2">
     <%= form.label :Ano, style: "display: block" %>
-    <%= form.date_field :year, class: "form-control" %>
+    <%= form.date_field :year, class: "form-control", type: "year" %>
   </div>
 
   <div class="mb-3 ms-2">

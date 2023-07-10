@@ -4,7 +4,15 @@ class BooksController < ApplicationController
   # GET /books or /books.json
   def index
     @books = Book.all
+
+    start_year = params.dig(:start_date, :year).to_i
+    end_year = params.dig(:end_date, :year).to_i
+
+    if start_year > 0 && end_year > 0
+      @books = @books.where(year: start_year..end_year)
+    end
   end
+
 
   # GET /books/1 or /books/1.json
   def show
