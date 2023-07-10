@@ -4,6 +4,15 @@ class LoansController < ApplicationController
   # GET /loans or /loans.json
   def index
     @loans = Loan.all
+
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+
+    if start_date.present? && end_date.present?
+      @loans = Loan.where(loan_date: start_date..end_date)
+    else
+      @loans = Loan.all
+    end
   end
 
   # GET /loans/1 or /loans/1.json

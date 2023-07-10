@@ -4,10 +4,16 @@
   <div class="row">
     <div class="col-8">
       <h1 class="h2 mt-4 mb-4">Empréstimos</h1>
-      <div class="input-group mb-5 align-items-center">
-        <span class="h5 ps-4">Período da Pesquisa: </span><label class="ms-2" for="inicio">De: </label>
-        <input id="data-inicio" class="form-control ms-2" type="date" /><label class="ms-2" for="final">Até: </label>
-        <input id="data-final" class="form-control ms-2" type="date" />
+      <%= form_tag loans_path, method: :get, class: "input-group mb-5 align-items-center" do %>
+        <span class="h5 ps-4">Período da Pesquisa: </span>
+        <label class="ms-2" for="inicio">De: </label>
+        <%= date_field_tag :start_date, params[:start_date], class: "form-control ms-2" %>
+        <label class="ms-2" for="final">Até: </label>
+        <%= date_field_tag :end_date, params[:end_date], class: "form-control ms-2" %>
+        <div class="container d-flex justify-content-end p-3">
+          <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
+        </div>
+      <% end %>
       </div>
     </div>
   </div>
@@ -73,8 +79,7 @@
 <!--              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
 <!--            </div>-->
 <!--            <div class="modal-body">-->
-
-              <%#= form_with(url: add_return_loan_path(@loan), method: :post) do |form| %>
+              <%#= form_for @loan, url: add_return_loan_path(@loan.id), method: :post do |form| %>
 <!--                <div class="field pb-2">-->
 <!--                  <%#= form.label :return, "Data de Devolução" %><br>-->
                   <%#= form.date_field :return, class: "form-control" %>
@@ -91,9 +96,4 @@
     </table>
   </div>
 </div>
-
-
-<div id="loans">
-</div>
-
 
