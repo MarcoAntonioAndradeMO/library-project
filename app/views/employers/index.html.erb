@@ -5,14 +5,19 @@
   <div class="row">
     <div class="col-8">
       <h1 class="h2 mt-4 mb-4">Funcionários</h1>
-      <div class="input-group mb-5 align-items-center">
-        <span class="h5 ps-4">Período da Pesquisa: </span><label class="ms-2" for="inicio">De: </label>
-        <input id="data-inicio" class="form-control ms-2" type="date" /><label class="ms-2" for="final">Até: </label>
-        <input id="data-final" class="form-control ms-2" type="date" />
-      </div>
+      <%= form_tag employers_path, method: :get, class: "input-group mb-5 align-items-center" do %>
+        <span class="h5 ps-4">Período da Pesquisa: </span>
+        <label class="ms-2" for="inicio">De: </label>
+        <%= date_field_tag :start_date, params[:start_date], class: "form-control ms-2" %>
+        <label class="ms-2" for="final">Até: </label>
+        <%= date_field_tag :end_date, params[:end_date] || Time.current.to_date, class: "form-control ms-2" %>        <div class="container d-flex justify-content-end p-3">
+          <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
 
 
 

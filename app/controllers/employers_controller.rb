@@ -6,9 +6,22 @@ class EmployersController < ApplicationController
     @employers = Employer.all
     @loan_count = Hash.new(0)
 
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+
+    if start_date.present? && end_date.present?
+      start_date = DateTime.parse(start_date)
+      end_date = DateTime.parse(end_date)
+      @employers = Employer.where("effectuation_date <= ?", end_date)
+      @employers = @employers.where("resignation_date IS NULL OR resignation_date > ?", end_date)
+    else
+      @employers = Employer.all
+    end
+
     @employers.each do |employer|
       @loan_count[employer.id] = employer.loans.count
     end
+
   end
 
   # GET /employers/1 or /employers/1.json

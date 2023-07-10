@@ -28,13 +28,8 @@
 
   <div class="mb-3 ms-2">
     <%= form.label :Data_de_demissão, style: "display: block" %>
-    <%= form.text_field :resignation_date, class: "form-control" %>
+    <%= form.date_field :resignation_date, class: "form-control" %>
   </div>
-
-<!--  <div class="mb-3 ms-2">-->
-    <%#= form.label :Empréstimos, style: "display: block" %>
-    <%#= form.text_field :loans, class: "form-control" %>
-<!--  </div>-->
 
   <div class="mb-3 ms-2">
     <%= submit_tag "Enviar", class: "submit-button btn btn-success" %>
