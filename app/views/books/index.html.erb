@@ -7,17 +7,17 @@
       <%= form_tag books_path, method: :get, class: "input-group mb-5 align-items-center" do %>
         <span class="h5 ps-4">Período da Pesquisa: </span>
         <label class="ms-2" for="inicio">De: </label>
-        <%= select_year(params.dig(:start_date, :year).to_i, { prefix: :start_date, start_year: 1900, end_year: Date.current.year, include_blank: true }, class: "form-control ms-2") %>
+        <%= number_field_tag 'start_date[year]', params.dig(:start_date, :year), class: "form-control ms-2", placeholder: "Ano" %>
         <label class="ms-2" for="final">Até: </label>
-        <%= select_year(params.dig(:end_date, :year).to_i, { prefix: :end_date, start_year: 1900, end_year: Date.current.year, include_blank: true }, class: "form-control ms-2") %>
+        <%= number_field_tag 'end_date[year]', params.dig(:end_date, :year) || Time.current.year, class: "form-control ms-2", placeholder: "Ano" %>
         <div class="container d-flex justify-content-end p-3">
-
           <%= submit_tag "Pesquisar", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
   </div>
 </div>
+
 
 
 
