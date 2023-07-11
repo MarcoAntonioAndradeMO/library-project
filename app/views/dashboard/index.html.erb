@@ -34,253 +34,262 @@
 
   <div class="row justify-content-center">
     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3 mb-2">
-      <div class="box-card">
-        <div class="position-absolute top-0 end-0 p-2">
-          <a class="btn-ver" id="ver-temas" href="temas.html">Ver mais</a>
-        </div>
-
-        <table class="table">
-          <thead>
-          <div class="titulo">
-            <p class="titulo-table"><span class="divisao-titulo">Temas mais</span><br> Procurados</p>
+      <div class="position-relative">
+        <div class="box-card">
+          <div class="position-absolute top-0 end-0 p-2">
+            <%= link_to "Ver mais", themes_path , :class => "btn-ver flex-end"%>
           </div>
-          </thead>
-          <tbody>
-          <tr>
-            <td>1</td>
-            <td>Nome do Tema</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Nome do Tema</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Nome do Tema</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Nome do Tema</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Nome do Tema</td>
-            <td>QTD Emp</td>
-          </tr>
-          </tbody>
-        </table>
 
-        <div class="d-flex justify-content-lg-end">
-          <%= link_to "Novo Tema", new_theme_path , :class => "btn btn-primary"%>
-<!--        <button type="button" class="btn btn-primary" id="add-tema" data-bs-toggle="modal" data-bs-target="#modal-tema">Novo Tema</button>-->
-        </div>
-      </div>
-    </div>
+          <table class="table">
+            <thead>
+            <div class="titulo">
+              <p class="titulo-table"><span class="divisao-titulo">Temas mais</span><br> Procurados</p>
+            </div>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1</td>
+              <td>Nome do Tema</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Nome do Tema</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Nome do Tema</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Nome do Tema</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Nome do Tema</td>
+              <td>QTD Emp</td>
+            </tr>
+            </tbody>
+          </table>
 
-    <div class="modal" tabindex="-1" id="modal-tema">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Adicionando um novo Tema</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <label for="nome-tema">Nome do tema: </label><br>
-            <input class="form-control" type="text" id="nome-tema" name="nome-tema"><br>
-          </div>
-          <div class="modal-footer">
-            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Enviar</button>
+          <div class="d-flex justify-content-lg-end">
+            <%= link_to "Novo Tema", new_theme_path , :class => "btn btn-primary"%>
           </div>
         </div>
       </div>
-    </div>
+      </div>
+
+<!--    <div class="modal" tabindex="-1" id="modal-tema">-->
+<!--      <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--          <div class="modal-header">-->
+<!--            <h5 class="modal-title">Adicionando um novo Tema</h5>-->
+<!--            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--          </div>-->
+<!--          <div class="modal-body">-->
+<!--            <label for="nome-tema">Nome do tema: </label><br>-->
+<!--            <input class="form-control" type="text" id="nome-tema" name="nome-tema"><br>-->
+<!--          </div>-->
+<!--          <div class="modal-footer">-->
+<!--            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Enviar</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
 
     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
-      <div class="box-card">
-        <div class="position-absolute top-0 end-0 p-2">
-          <a class="btn-ver" id="ver-emprestados" href="livros.html">Ver mais</a>
-        </div>
+      <div class="position-relative">
+        <div class="box-card">
+          <div class="position-absolute top-0 end-0 p-2">
+            <%= link_to "Ver mais", books_path , :class => "btn-ver flex-end"%>
+          </div>
 
-        <table class="table">
-          <thead>
-          <div class="titulo">
-            <p class="titulo-table"> <span class="divisao-titulo">Livros mais</span><br> Emprestados</p>
-          </div>
-          </thead>
-          <tbody>
-          <tr>
-            <td>1</td>
-            <td>Nome do Livro</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Nome do Livro</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Nome do Livro</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Nome do Livro</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Nome do Livro</td>
-            <td>QTD Emp</td>
-          </tr>
-          </tbody>
-        </table>
-        <div class="d-flex justify-content-lg-end">
-          <%= link_to "Novo Livro", new_book_path , :class => "btn btn-primary"%>
-<!--          <button type="button" class="btn btn-primary" id="add-livro" data-bs-toggle="modal" data-bs-target="#modal-livro">Novo Livro</button>-->
-        </div>
-      </div>
-    </div>
-
-    <div class="modal" tabindex="-1" id="modal-livro">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Adicionando um novo Livro</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <label for="nome-tema">Nome do livro: </label><br>
-            <input class="form-control" type="text" id="nome-livro" name="nome-livro"><br>
-            <label for="nome-tema">Nome do Autor: </label><br>
-            <input class="form-control" type="text" id="nome-autor" name="nome-livro"><br>
-            <label for="nome-tema">Ano de Lançamento: </label><br>
-            <input class="form-control" type="text" id="ano-livro" name="ano-livro"><br>
-            <label for="nome-tema">ISBN: </label><br>
-            <input class="form-control" type="text" id="isbn-livro" name="isbn-livro"><br>
-          </div>
-          <div class="modal-footer">
-            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Enviar</button>
+          <table class="table">
+            <thead>
+            <div class="titulo">
+              <p class="titulo-table"> <span class="divisao-titulo">Livros mais</span><br> Emprestados</p>
+            </div>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1</td>
+              <td>Nome do Livro</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Nome do Livro</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Nome do Livro</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Nome do Livro</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Nome do Livro</td>
+              <td>QTD Emp</td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-lg-end">
+            <%= link_to "Novo Livro", new_book_path , :class => "btn btn-primary"%>
+            <!--          <button type="button" class="btn btn-primary" id="add-livro" data-bs-toggle="modal" data-bs-target="#modal-livro">Novo Livro</button>-->
           </div>
         </div>
       </div>
-    </div>
+      </div>
+
+<!--    <div class="modal" tabindex="-1" id="modal-livro">-->
+<!--      <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--          <div class="modal-header">-->
+<!--            <h5 class="modal-title">Adicionando um novo Livro</h5>-->
+<!--            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--          </div>-->
+<!--          <div class="modal-body">-->
+<!--            <label for="nome-tema">Nome do livro: </label><br>-->
+<!--            <input class="form-control" type="text" id="nome-livro" name="nome-livro"><br>-->
+<!--            <label for="nome-tema">Nome do Autor: </label><br>-->
+<!--            <input class="form-control" type="text" id="nome-autor" name="nome-livro"><br>-->
+<!--            <label for="nome-tema">Ano de Lançamento: </label><br>-->
+<!--            <input class="form-control" type="text" id="ano-livro" name="ano-livro"><br>-->
+<!--            <label for="nome-tema">ISBN: </label><br>-->
+<!--            <input class="form-control" type="text" id="isbn-livro" name="isbn-livro"><br>-->
+<!--          </div>-->
+<!--          <div class="modal-footer">-->
+<!--            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Enviar</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
-      <div class="box-card">
-        <div class="position-absolute top-0 end-0 p-2">
-          <a class="btn-ver" id="ver-alunos" href="alunos.html">Ver mais</a>
-        </div>
+      <div class="position-relative">
+        <div class="box-card">
+          <div class="position-absolute top-0 end-0 p-2">
+            <%= link_to "Ver mais", students_path , :class => "btn-ver flex-end"%>
+          </div>
 
-        <table class="table">
-          <thead>
-          <div class="titulo">
-            <p class="titulo-table"><span class="divisao-titulo">Alunos que mais</span><br> Pediram</p>
-          </div>
-          </thead>
-          <tbody>
-          <tr>
-            <td>1</td>
-            <td>Nome Aluno</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Nome Aluno</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Nome Aluno</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Nome Aluno</td>
-            <td>QTD Emp</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Nome Aluno</td>
-            <td>QTD Emp</td>
-          </tr>
-          </tbody>
-        </table>
-        <div class="d-flex justify-content-lg-end">
-          <%= link_to "Novo Aluno", new_student_path , :class => "btn btn-primary"%>
-<!--          <button type="button" class="btn btn-primary" id="add-livro" data-bs-toggle="modal" data-bs-target="#modal-aluno">Novo Aluno</button>-->
-        </div>
-      </div>
-    </div>
-
-    <div class="modal" tabindex="-1" id="modal-aluno">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Adicionando um novo Aluno</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <label for="nome-aluno">Nome do Aluno: </label><br>
-            <input class="form-control" type="text" id="nome-aluno" name="nome-aluno"><br>
-            <label for="matricula-aluno">Matrícula do Aluno: </label><br>
-            <input class="form-control" type="text" id="matricula-aluno" name="matricula-aluno"><br>
-            <label for="qtd-emprestimos">Quantidade de Empréstimos: </label><br>
-            <input class="form-control" type="number" id="qtd-emprestimos" name="qtd-emprestimos"><br>
-          </div>
-          <div class="modal-footer">
-            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Enviar</button>
+          <table class="table">
+            <thead>
+            <div class="titulo">
+              <p class="titulo-table"><span class="divisao-titulo">Alunos que mais</span><br> Pediram</p>
+            </div>
+            </thead>
+            <tbody>
+            <tr>
+              <td>1</td>
+              <td>Nome Aluno</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Nome Aluno</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Nome Aluno</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Nome Aluno</td>
+              <td>QTD Emp</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>Nome Aluno</td>
+              <td>QTD Emp</td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-lg-end">
+            <%= link_to "Novo Aluno", new_student_path , :class => "btn btn-primary"%>
+            <!--          <button type="button" class="btn btn-primary" id="add-livro" data-bs-toggle="modal" data-bs-target="#modal-aluno">Novo Aluno</button>-->
           </div>
         </div>
       </div>
-    </div>
+      </div>
+
+
+<!--    <div class="modal" tabindex="-1" id="modal-aluno">-->
+<!--      <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--          <div class="modal-header">-->
+<!--            <h5 class="modal-title">Adicionando um novo Aluno</h5>-->
+<!--            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--          </div>-->
+<!--          <div class="modal-body">-->
+<!--            <label for="nome-aluno">Nome do Aluno: </label><br>-->
+<!--            <input class="form-control" type="text" id="nome-aluno" name="nome-aluno"><br>-->
+<!--            <label for="matricula-aluno">Matrícula do Aluno: </label><br>-->
+<!--            <input class="form-control" type="text" id="matricula-aluno" name="matricula-aluno"><br>-->
+<!--            <label for="qtd-emprestimos">Quantidade de Empréstimos: </label><br>-->
+<!--            <input class="form-control" type="number" id="qtd-emprestimos" name="qtd-emprestimos"><br>-->
+<!--          </div>-->
+<!--          <div class="modal-footer">-->
+<!--            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" data-bs-dismiss="modal" type="submit">Enviar</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
 
     <div class="col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
-      <div class="box-card">
-        <div class="position-absolute top-0 end-0 p-2">
-          <a class="btn-ver" id="ver-devolucoes" href="emprestimos.html">Ver mais</a>
-        </div>
-
-        <table class="table ">
-          <thead>
-          <div class="titulo">
-            <p class="titulo-table"><span class="divisao-titulo">Últimas</span><br> Devoluções</p>
+      <div class="position-relative">
+        <div class="box-card">
+          <div class="position-absolute top-0 end-0 p-2">
+            <%= link_to "Ver mais", loans_path , :class => "btn-ver flex-end"%>
           </div>
-          </thead>
-          <tbody>
-          <tr>
-            <td>Nome do Livro</td>
-            <td>DD/MM/AAAA</td>
-          </tr>
-          <tr>
-            <td>Nome do Livro</td>
-            <td>DD/MM/AAAA</td>
-          </tr>
-          <tr>
-            <td>Nome do Livro</td>
-            <td>DD/MM/AAAA</td>
-          </tr>
-          <tr>
-            <td>Nome do Livro</td>
-            <td>DD/MM/AAAA</td>
-          </tr>
-          <tr>
-            <td>Nome do Livro</td>
-            <td>DD/MM/AAAA</td>
-          </tr>
-          </tbody>
-        </table>
-        <div class="d-flex justify-content-lg-end">
-          <button type="button" class="btn btn-primary" id="add-devolucao" data-bs-toggle="modal" data-bs-target="#modal-devolucao">Registrar</button>
+
+          <table class="table ">
+            <thead>
+            <div class="titulo">
+              <p class="titulo-table"><span class="divisao-titulo">Últimas</span><br> Devoluções</p>
+            </div>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Nome do Livro</td>
+              <td>DD/MM/AAAA</td>
+            </tr>
+            <tr>
+              <td>Nome do Livro</td>
+              <td>DD/MM/AAAA</td>
+            </tr>
+            <tr>
+              <td>Nome do Livro</td>
+              <td>DD/MM/AAAA</td>
+            </tr>
+            <tr>
+              <td>Nome do Livro</td>
+              <td>DD/MM/AAAA</td>
+            </tr>
+            <tr>
+              <td>Nome do Livro</td>
+              <td>DD/MM/AAAA</td>
+            </tr>
+            </tbody>
+          </table>
+          <div class="d-flex justify-content-lg-end">
+            <button type="button" class="btn btn-primary" id="add-devolucao" data-bs-toggle="modal" data-bs-target="#modal-devolucao">Registrar</button>
+          </div>
         </div>
       </div>
-    </div>
+      </div>
+
 
     <div class="modal" tabindex="-1" id="modal-devolucao">
       <div class="modal-dialog">
@@ -308,7 +317,10 @@
 
   </div>
 
+
+<div class="p-2">
   <h3 id="emprestados">Livros não devolvidos:</h3>
+</div>
 
 
   <div class="responsiva">
