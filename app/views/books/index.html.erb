@@ -68,4 +68,24 @@
       </tbody>
     </table>
   </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Nome do Livro</th>
+      <th>Contagem de Empréstimos</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @top_books_loans.each.with_index(1) do |book, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= book.book_name %></td>
+        <td><%= book.loan_count %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
 </div>
