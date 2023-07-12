@@ -96,6 +96,7 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
+        @loan.student.increment!(:loan_count)
         format.html { redirect_to loan_url(@loan), notice: "Empréstimo Criado com Sucesso!" }
         format.json { render :show, status: :created, location: @loan }
       else
@@ -135,6 +136,10 @@ class LoansController < ApplicationController
 
     @loan.books.destroy_all
     @loan.destroy
+
+    if @loan.destroy
+      @loan.student.decrement!(:loan_count)
+    end
 
     respond_to do |format|
       format.html { redirect_to loans_url, notice: "Empréstimo Apagado com sucesso!" }

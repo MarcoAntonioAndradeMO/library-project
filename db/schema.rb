@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_10_140804) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_11_174845) do
   create_table "add_author_to_books", force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "book_id", null: false
@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_10_140804) do
     t.string "cpf"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "loan_count", default: 0
   end
 
   create_table "themes", force: :cascade do |t|

@@ -188,33 +188,16 @@
             </div>
             </thead>
             <tbody>
-            <tr>
-              <td>1</td>
-              <td>Nome Aluno</td>
-              <td>QTD Emp</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Nome Aluno</td>
-              <td>QTD Emp</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Nome Aluno</td>
-              <td>QTD Emp</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Nome Aluno</td>
-              <td>QTD Emp</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Nome Aluno</td>
-              <td>QTD Emp</td>
-            </tr>
+            <% @top_students.each.with_index(1) do |student, index| %>
+              <tr>
+                <td><%= index %></td>
+                <td><%= student.proper_name %></td>
+                <td><%= student.loan_count %></td>
+              </tr>
+            <% end %>
             </tbody>
           </table>
+
           <div class="d-flex justify-content-lg-end">
             <%= link_to "Novo Aluno", new_student_path , :class => "btn btn-primary"%>
             <!--          <button type="button" class="btn btn-primary" id="add-livro" data-bs-toggle="modal" data-bs-target="#modal-aluno">Novo Aluno</button>-->

@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
   # GET /students or /students.json
   def index
     @students = Student.all
+    @top_students = Student.all.sort_by { |student| student.loan_count }.reverse.take(5)
   end
 
   # GET /students/1 or /students/1.json
