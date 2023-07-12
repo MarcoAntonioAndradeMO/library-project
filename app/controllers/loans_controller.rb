@@ -66,13 +66,13 @@ class LoansController < ApplicationController
     @loan = Loan.find(params[:id])
     book = Book.find(params[:book_id])
 
-    #if @loan.books.include?(book)
     if @loan.add_book_to_loans.where(book_id:book.id).present?
       redirect_to @loan, notice: "Este livro já faz parte do Empréstimo."
     elsif book.borrowed >= book.quantity
       redirect_to @loan, notice: "Não é possível adicionar esse livro. Todas unidades já foram emprestadas."
     else
       book.borrowed = book.borrowed + 1
+      book.loan_count = book.loan_count + 1
       book.save
       @loan.books << book
       redirect_to @loan, notice: "Livro adicionado ao Empréstimo."
@@ -85,6 +85,9 @@ class LoansController < ApplicationController
 
     @loan.books.delete(@book)
 
+    if @loan.books.delete(@book)
+      @book.update(loan_count: @book.loan_count - 1)
+    end
     redirect_to @loan, notice: "Livro removido do Empréstimo."
   end
 
@@ -96,7 +99,7 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
-        @loan.student.increment!(:loan_count)
+
         format.html { redirect_to loan_url(@loan), notice: "Empréstimo Criado com Sucesso!" }
         format.json { render :show, status: :created, location: @loan }
       else
@@ -128,6 +131,13 @@ class LoansController < ApplicationController
   # DELETE /loans/1 or /loans/1.json
   def destroy
     @loan = Loan.find(params[:id])
+
+    @loan.book = @book
+
+    @loan.books.each do |book|
+      book.loan_count -= 1
+      book.save
+    end
 
     @loan.books.each do |book|
       book.borrowed -= 1

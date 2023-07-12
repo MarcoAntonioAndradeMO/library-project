@@ -11,6 +11,7 @@ class BooksController < ApplicationController
     if start_year > 0 && end_year > 0
       @books = @books.where(year: start_year..end_year)
     end
+    @top_books_loans = Book.all.sort_by { |book| book.loan_count }.reverse.take(5)
   end
 
 
