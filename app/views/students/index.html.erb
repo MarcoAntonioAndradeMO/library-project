@@ -46,14 +46,13 @@
 <table>
   <thead>
   <tr>
-    <th>Nome do Aluno</th>
-    <th>Contagem de Empréstimos</th>
+    <th>Aluno</th>
+    <th>Qtd. de Empréstimos</th>
   </tr>
   </thead>
   <tbody>
-  <% @students.each.with_index(1) do |student, index| %>
+  <% @top_students_loans.each do |student, index| %>
     <tr>
-      <td><%= index %></td>
       <td><%= student.proper_name %></td>
       <td><%= student.loan_count %></td>
     </tr>
